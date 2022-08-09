@@ -1,0 +1,101 @@
+li{
+    list-style-type: none;
+}
+
+a{
+    color: inherit;
+}
+
+*,*::after,*::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    cursor: none;
+}
+::selection{
+    background: none;
+    color: inherit;
+}
+
+#cursor{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    border-radius: 50%;
+    border: solid 2px rgb(255, 255, 255);
+    transform: translate(-50%,-50%);
+    // top: 100px;left: 100px;
+    mix-blend-mode: difference;
+    transition: 0.2s ease-out;
+}
+#lilcursor{
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    border-radius: 50%;
+    background: rgb(255, 255, 255);
+    transform: scale(1) translate(-50%,-50%);
+    // top: 100px;left: 100px;
+    mix-blend-mode: difference;
+    transition: 0.1s;
+    transform-origin: center;
+}
+
+main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 800px;
+    transform-style: preserve-3d;
+    transform: rotateY(180deg) rotateX(180deg);
+    overflow: hidden;
+    >div.box{
+        width: 50%;
+        height: 50vh;
+        display: flex;
+        border: solid 2px gray;
+        border-radius: 5px;
+        overflow: hidden;
+        transform: rotateY(180deg)rotateX(180deg);
+        // transition: 0.2s;
+        span{
+            width: 50%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 80px;
+            &::before{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                font-size: 500px;
+                position: absolute;
+                color: rgba(0, 0, 0, 0.123);
+                font-family: serif;
+            }
+            &:nth-child(1){
+                color: rgb(0, 62, 133);
+                background: rgb(140, 194, 255);
+                &::before{
+                    content: 'X';
+                }
+            }
+            &:nth-child(2){
+                color: rgb(116, 0, 0);
+                background: rgb(255, 130, 130);
+                &::before{
+                    content: 'Y';
+                }
+            }
+        }
+    }
+}
